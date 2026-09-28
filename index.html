@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="ریاضی‌پلاس؛ آموزش تعاملی اولویت عملیات و روش گاوس، همراه با تمرین و چالش‌های ریاضی.">
+<title>ریاضی‌پلاس | آکادمی هوشمند ریاضی</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Estedad:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a0f1e;
+  --surface: #111a2e;
+  --surface2: #18233b;
+  --text: #f4f6ff;
+  --muted: #9ba9c5;
+  --border: #ffffff14;
+  --purple: #a18aff;
+  --cyan: #50e6e6;
+  --pink: #ff7dc4;
+  --green: #65e5a3;
+  --orange: #ffbd69;
+  --shadow: 0 20px 70px #0003;
+}
+
+body.light {
+  color-scheme: light;
+  --bg: #f4f6fc;
+  --surface: #ffffff;
+  --surface2: #edf0fb;
+  --text: #17203a;
+  --muted: #68738c;
+  --border: #17203a18;
+  --purple: #7654e9;
+  --cyan: #087f99;
+  --pink: #d43b91;
+  --green: #15834e;
+  --orange: #a55a08;
+  --shadow: 0 15px 50px #29365d12;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 5% 5%, #6033a71b, transparent 35%),
+    radial-gradient(ellipse at 90% 20%, #0098bd12, transparent 35%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Vazirmatn', 'Estedad', sans-serif;
+  direction: ltr;
+  text-align: left;
+  line-height: 1.9;
+  transition: background .3s, color .3s;
+}
+
+body, button, input { font-family: 'Vazirmatn', sans-serif; }
+
+button, input { font-size: inherit; }
+button { cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+.container {
+  width: min(1150px, calc(100% - 36px));
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  min-height: 76px;
+}
+
+.logo {
+  font-family: 'Estedad', sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  background: linear-gradient(110deg, var(--cyan), var(--purple), var(--pink));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 13px;
+  transition: color .2s;
+}
+
+.nav-links a:hover { color: var(--cyan); }
+
+.icon-btn {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 43px;
+  height: 43px;
+}
+
+.hero {
+  padding: 85px 0 50px;
+  text-align: center;
+  position: relative;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 6px 17px;
+  border: 1px solid #a18aff55;
+  border-radius: 40px;
+  background: #a18aff12;
+  color: var(--purple);
+  font-size: 13px;
+}
+
+h1 {
+  font-family: 'Estedad', sans-serif;
+  font-size: clamp(34px, 6vw, 68px);
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 22px 0;
+}
+
+.gradient {
+  background: linear-gradient(100deg, var(--cyan), var(--purple), var(--pink));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  max-width: 690px;
+  margin: auto;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 27px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 21px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  color: white;
+  background: linear-gradient(120deg, #8767f5, #548cf5);
+  font-weight: 700;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px #8767f544;
+}
+
+.btn.secondary {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.btn.small { padding: 8px 15px; font-size: 13px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 45px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 19px;
+}
+
+.stat strong {
+  display: block;
+  color: var(--cyan);
+  font-size: 28px;
+}
+
+.section { padding: 48px 0; }
+
+.section-heading {
+  font-family: 'Estedad', sans-serif;
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+
+.section-desc { color: var(--muted); margin: 0 0 25px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: linear-gradient(145deg, var(--surface2), var(--surface));
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 25px;
+  transition: transform .3s, border-color .3s;
+  min-width: 0;
+}
+
+.card:hover { transform: translateY(-5px); border-color: var(--purple); }
+
+.card h3 { font-size: 21px; margin: 8px 0; }
+.card p { color: var(--muted); font-size: 14px; }
+
+.card-icon { font-size: 35px; }
+
+.pill {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  color: var(--cyan);
+  background: #50e6e618;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: clamp(18px, 4vw, 32px);
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+
+.panel h3 { font-size: 22px; margin-top: 0; }
+
+.formula {
+  direction: rtl;
+  unicode-bidi: isolate;
+  text-align: center;
+  font-family: 'Cambria Math', 'Times New Roman', serif;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--cyan);
+  border-radius: 15px;
+  padding: 18px 10px;
+  margin: 20px 0;
+  font-size: clamp(19px, 4vw, 29px);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.steps {
+  border-left: 3px solid var(--purple);
+  padding-left: 18px;
+  margin: 22px 0;
+}
+
+.steps p { margin: 12px 0; }
+
+.callout {
+  border: 1px solid #50e6e644;
+  background: #50e6e610;
+  padding: 17px;
+  border-radius: 15px;
+  margin: 18px 0;
+}
+
+.callout.warning {
+  border-color: #ffbd6944;
+  background: #ffbd6910;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background: var(--surface2);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 9px 16px;
+}
+
+.tab.active {
+  color: var(--text);
+  border-color: var(--purple);
+  background: #a18aff20;
+}
+
+.quiz-box {
+  background: linear-gradient(145deg, #302254, #13253d);
+  color: #f7f5ff;
+  border-radius: 24px;
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid #a18aff55;
+  margin-top: 20px;
+}
+
+.quiz-box .formula { background: #0b1020; }
+
+.progress {
+  height: 8px;
+  background: #ffffff20;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  transition: width .4s;
+}
+
+.answers { display: grid; gap: 12px; margin: 22px 0; }
+
+.answer {
+  text-align: left;
+  background: #ffffff0b;
+  color: #f7f5ff;
+  border: 1px solid #ffffff30;
+  border-radius: 13px;
+  padding: 13px 17px;
+  transition: .2s;
+}
+
+.answer:hover { border-color: var(--cyan); background: #50e6e615; }
+
+.answer.correct { border-color: #65e5a3; background: #65e5a320; }
+.answer.wrong { border-color: #ff7dc4; background: #ff7dc420; }
+
+.feedback {
+  min-height: 35px;
+  line-height: 1.9;
+  font-weight: 600;
+}
+
+.quiz-box .btn.secondary {
+  color: white;
+  background: #ffffff14;
+}
+
+input[type="text"] {
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 15px;
+}
+
+input[type="text"]::placeholder { color: var(--muted); }
+
+.challenge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.challenge-row input { flex: 1; min-width: 150px; }
+
+.result {
+  color: var(--green);
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.achievement {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.achievement.locked { opacity: .45; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 35px 0;
+  text-align: center;
+  color: var(--muted);
+  margin-top: 50px;
+}
+
+.reveal { animation: appear .6s ease both; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width:760px) {
+  .nav { flex-wrap: wrap; padding: 12px 0; }
+  .nav-links { order: 3; width: 100%; justify-content: center; gap: 13px; }
+  .hero { padding-top: 55px; }
+  .stats { grid-template-columns: 1fr; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">✦ ریاضی‌پلاس</a>
+    <nav class="nav-links" aria-label="منوی اصلی">
+      <a href="#courses">آموزش‌ها</a>
+      <a href="#priority">اولویت عملیات</a>
+      <a href="#gauss">روش گاوس</a>
+      <a href="#challenge">چالش‌ها</a>
+      <a href="#progress">پیشرفت من</a>
+    </nav>
+    <button class="icon-btn" id="themeBtn" aria-label="تغییر تم">☀️</button>
+  </div>
+</header>
+
+<main>
+<section class="hero container reveal" id="home">
+  <span class="badge">✦ آکادمی تعاملی ریاضی</span>
+  <h1>ریاضی رو <span class="gradient">متفاوت</span><br>یاد بگیر!</h1>
+  <p class="subtitle">
+    از اولویت عملیات تا روش گاوس؛ با آموزش‌های عمیق،
+    مثال‌های چالشی و آزمون‌های تعاملی، دنیای ریاضی رو کشف کن.
+  </p>
+
+  <div class="actions">
+    <a class="btn" href="#courses">شروع یادگیری ←</a>
+    <a class="btn secondary" href="#challenge">ورود به چالش 🎯</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><strong id="statLessons">۶</strong>درس آموزشی</div>
+    <div class="stat"><strong id="statScore">۰</strong>امتیاز کسب‌شده</div>
+    <div class="stat"><strong id="statDone">۰</strong>پاسخ درست</div>
+  </div>
+</section>
+
+<div class="container">
+
+<section class="section" id="courses">
+  <h2 class="section-heading">مسیر یادگیری تو 🎯</h2>
+  <p class="section-desc">موضوعی رو انتخاب کن و قدم‌به‌قدم جلو برو.</p>
+
+  <div class="grid">
+    <article class="card">
+      <div class="card-icon">🧠</div>
+      <span class="pill">متوسط تا پیشرفته</span>
+      <h3>اولویت عملیات</h3>
+      <p>پرانتز، توان، ضرب، تقسیم، جمع و تفریق با مثال‌های چندمرحله‌ای.</p>
+      <a class="btn small" href="#priority">شروع آموزش ←</a>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">⚡</div>
+      <span class="pill">پیشرفته</span>
+      <h3>روش گاوس</h3>
+      <p>یاد بگیر چطور مجموع دنباله‌های عددی رو با جفت‌سازی محاسبه کنی.</p>
+      <a class="btn small" href="#gauss">شروع آموزش ←</a>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">🎮</div>
+      <span class="pill">تمرین تعاملی</span>
+      <h3>چالش ریاضی</h3>
+      <p>سؤال‌های متنوع رو حل کن، امتیاز بگیر و پیشرفتت رو ببین.</p>
+      <a class="btn small" href="#challenge">شروع چالش ←</a>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="priority">
+  <h2 class="section-heading">📘 آموزش اولویت عملیات</h2>
+  <p class="section-desc">برای حل عبارت‌های پیچیده باید ترتیب انجام عملیات رو بدونی.</p>
+
+  <div class="panel">
+    <h3>قانون اصلی: ترتیب عملیات</h3>
+    <div class="formula">( ) → توان و ریشه → ضرب و تقسیم → جمع و تفریق</div>
+    <div class="steps">
+      <p><b>مرحله ۱:</b> ابتدا عبارت‌های داخل پرانتز رو محاسبه کن.</p>
+      <p><b>مرحله ۲:</b> توان‌ها و ریشه‌ها رو انجام بده.</p>
+      <p><b>مرحله ۳:</b> ضرب و تقسیم رو از چپ به راست انجام بده.</p>
+      <p><b>مرحله ۴:</b> جمع و تفریق رو از چپ به راست انجام بده.</p>
+    </div>
+    <div class="callout">
+      <b>نکته:</b> ضرب و تقسیم هم‌اولویت‌اند. همین قانون برای جمع و تفریق هم صدق می‌کنه.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>مثال ۱ — چندمرحله‌ای</h3>
+    <div class="formula">18 − 3 × (2 + 4)² ÷ 6 + 5</div>
+    <div class="steps">
+      <p><b>۱.</b> پرانتز: ۲ + ۴ = ۶</p>
+      <div class="formula">18 − 3 × 6² ÷ 6 + 5</div>
+      <p><b>۲.</b> توان: ۶² = ۳۶</p>
+      <div class="formula">18 − 3 × 36 ÷ 6 + 5</div>
+      <p><b>۳.</b> ضرب و تقسیم از چپ به راست: ۳ × ۳۶ = ۱۰۸ و ۱۰۸ ÷ ۶ = ۱۸</p>
+      <div class="formula">18 − 18 + 5 = 5</div>
+    </div>
+    <div class="callout">✅ جواب نهایی: ۵</div>
+  </div>
+
+  <div class="panel">
+    <h3>مثال ۲ — توان و علامت منفی</h3>
+    <div class="formula">−4² + (−4)² − 2 × (3 − 7)³</div>
+    <div class="steps">
+      <p><b>۱.</b> −۴² برابر −۱۶ است، اما (−۴)² برابر ۱۶ است.</p>
+      <p><b>۲.</b> ۳ − ۷ = −۴ و (−۴)³ = −۶۴</p>
+      <p><b>۳.</b> ۲ × (−۶۴) = −۱۲۸</p>
+      <p><b>۴.</b> −۱۶ + ۱۶ − (−۱۲۸) = ۱۲۸</p>
+    </div>
+    <div class="callout">✅ جواب نهایی: ۱۲۸</div>
+  </div>
+
+  <div class="panel">
+    <h3>مثال ۳ — عبارت ترکیبی دشوار</h3>
+    <div class="formula">48 ÷ [2 × (3 + 1)] + 3² × 2 − 5</div>
+    <div class="steps">
+      <p><b>۱.</b> پرانتز: ۳ + ۱ = ۴</p>
+      <p><b>۲.</b> داخل کروشه: ۲ × ۴ = ۸</p>
+      <p><b>۳.</b> توان: ۳² = ۹</p>
+      <p><b>۴.</b> تقسیم و ضرب: ۴۸ ÷ ۸ = ۶ و ۹ × ۲ = ۱۸</p>
+      <p><b>۵.</b> ۶ + ۱۸ − ۵ = ۱۹</p>
+    </div>
+    <div class="callout">✅ جواب نهایی: ۱۹</div>
+  </div>
+</section>
+
+<section class="section" id="gauss">
+  <h2 class="section-heading">⚡ آموزش روش گاوس</h2>
+  <p class="section-desc">با پیدا کردن الگوها، جمع‌های طولانی رو ساده‌تر کن.</p>
+
+  <div class="panel">
+    <h3>۱. ایده اصلی روش گاوس</h3>
+    <p>مجموع اعداد ۱ تا ۱۰۰ رو در نظر بگیر:</p>
+    <div class="formula">1 + 2 + 3 + ... + 98 + 99 + 100</div>
+    <p>عدد اول و آخر رو جفت می‌کنیم:</p>
+    <div class="formula">1 + 100 = 101</div>
+    <p>عدد دوم و یکی‌مانده‌به‌آخر هم همین مجموع رو دارن:</p>
+    <div class="formula">2 + 99 = 101</div>
+    <p>۵۰ جفت داریم و مجموع هر جفت ۱۰۱ است:</p>
+    <div class="formula">50 × 101 = 5050</div>
+    <div class="callout">
+      <b>فرمول مجموع اعداد ۱ تا n:</b>
+      <div class="formula">S = n(n + 1) ÷ 2</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>۲. مجموع اعداد ۱ تا ۲۰۰</h3>
+    <div class="formula">S = 200 × 201 ÷ 2</div>
+    <div class="formula">S = 100 × 201 = 20100</div>
+    <div class="callout">✅ جواب: ۲۰٬۱۰۰</div>
+  </div>
+
+  <div class="panel">
+    <h3>۳. مجموع اعداد فرد</h3>
+    <p>مجموع ۱۱ عدد فرد اول:</p>
+    <div class="formula">1 + 3 + 5 + ... + 21</div>
+    <p>مجموع n عدد فرد اول برابر n² است:</p>
+    <div class="formula">11² = 121</div>
+    <div class="callout">✅ جواب: ۱۲۱</div>
+  </div>
+
+  <div class="panel">
+    <h3>۴. دنباله با فاصله ثابت</h3>
+    <div class="formula">7 + 12 + 17 + ... + 102</div>
+    <div class="steps">
+      <p><b>۱.</b> اختلاف دو جمله متوالی ۵ است.</p>
+      <p><b>۲.</b> تعداد جمله‌ها: (۱۰۲ − ۷) ÷ ۵ + ۱ = ۲۰</p>
+      <p><b>۳.</b> میانگین جمله اول و آخر: (۷ + ۱۰۲) ÷ ۲ = ۵۴٫۵</p>
+      <p><b>۴.</b> مجموع: ۲۰ × ۵۴٫۵ = ۱۰۹۰</p>
+    </div>
+    <div class="callout">✅ جواب: ۱۰۹۰</div>
+  </div>
+
+  <div class="panel">
+    <h3>۵. مجموع یک دنباله بزرگ</h3>
+    <div class="formula">3 + 6 + 9 + ... + 300</div>
+    <div class="steps">
+      <p><b>۱.</b> تعداد جمله‌ها: ۳۰۰ ÷ ۳ = ۱۰۰</p>
+      <p><b>۲.</b> میانگین: (۳ + ۳۰۰) ÷ ۲ = ۱۵۱٫۵</p>
+      <p><b>۳.</b> مجموع: ۱۰۰ × ۱۵۱٫۵ = ۱۵۱۵۰</p>
+    </div>
+    <div class="callout">✅ جواب: ۱۵٬۱۵۰</div>
+  </div>
+</section>
+
+<section class="section" id="challenge">
+  <h2 class="section-heading">🎮 چالش هوشمند ریاضی</h2>
+  <p class="section-desc">سؤال‌ها رو حل کن و امتیاز جمع کن. با هر بار شروع مجدد، ترتیب سؤال‌ها تغییر می‌کنه.</p>
+
+  <div class="tabs" role="group" aria-label="انتخاب سطح">
+    <button class="tab active" data-level="all">همه سطوح</button>
+    <button class="tab" data-level="easy">آسان</button>
+    <button class="tab" data-level="medium">متوسط</button>
+    <button class="tab" data-level="hard">پیشرفته</button>
+  </div>
+
+  <div class="quiz-box">
+    <span class="pill" id="levelLabel">چالش ریاضی</span>
+    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+    <p id="counter">سؤال ۱</p>
+    <h3 id="question">در حال آماده‌سازی سؤال...</h3>
+    <div class="answers" id="answers"></div>
+    <p class="feedback" id="feedback" aria-live="polite"></p>
+    <button class="btn" id="nextBtn" hidden>سؤال بعدی ←</button>
+    <p>امتیاز این دور: <b id="roundScore">۰</b></p>
+  </div>
+
+  <div class="panel">
+    <h3>🎲 تمرین تصادفی روش گاوس</h3>
+    <p>یک دنباله با فاصله ثابت ساخته می‌شه. مجموعش رو حساب کن و جواب رو وارد کن.</p>
+    <div class="formula" id="randomSequence">برای شروع روی دکمه بزن.</div>
+    <button class="btn" id="newSequence">ساخت تمرین جدید ↻</button>
+    <div class="challenge-row">
+      <input type="text" id="sequenceAnswer" inputmode="numeric" placeholder="جواب مجموع رو وارد کن">
+      <button class="btn" id="checkSequence">بررسی جواب</button>
+    </div>
+    <p class="result" id="sequenceFeedback" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="section" id="progress">
+  <h2 class="section-heading">🏆 پیشرفت من</h2>
+  <p class="section-desc">امتیازها و نشان‌هایی که در این مرورگر به دست آوردی.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">⭐</div>
+      <h3>امتیاز کل</h3>
+      <p><strong id="totalScore">۰</strong> امتیاز</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✅</div>
+      <h3>پاسخ‌های درست</h3>
+      <p><strong id="totalCorrect">۰</strong> پاسخ</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h3>دقت پاسخ‌گویی</h3>
+      <p><strong id="accuracy">۰٪</strong></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:30px">نشان‌های تو</h3>
+  <div class="grid" id="achievements"></div>
+
+  <div class="callout warning">
+    پیشرفت‌ها در حافظه همین مرورگر ذخیره می‌شن. با پاک کردن داده‌های مرورگر ممکنه اطلاعاتت از بین بره.
+  </div>
+  <button class="btn secondary" id="resetProgress">پاک کردن پیشرفت</button>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="logo">✦ ریاضی‌پلاس</div>
+    <p>یادگیری ریاضی، این بار با هیجان بیشتر.</p>
+    <p>ساخته‌شده برای عاشقان ریاضی 💜</p>
+  </div>
+</footer>
+
+<
+<script>
+"use strict";
+
+const $ = id => document.getElementById(id);
+
+const STORAGE_KEY = "riaziPlusProgressV1";
+const THEME_KEY = "riaziPlusTheme";
+
+const defaults = { score: 0, correct: 0, attempts: 0 };
+
+function loadProgress() {
+  try {
+    return { ...defaults, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}") };
+  } catch {
+    return { ...defaults };
+  }
+}
+
+let progress = loadProgress();
+
+function saveProgress() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  } catch {}
+}
+
+function faNumber(n) {
+  return String(n).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+}
+
+function updateProgress() {
+  $("statScore").textContent = faNumber(progress.score);
+  $("statDone").textContent = faNumber(progress.correct);
+  $("totalScore").textContent = faNumber(progress.score);
+  $("totalCorrect").textContent = faNumber(progress.correct);
+
+  const accuracy = progress.attempts
+    ? Math.round(progress.correct / progress.attempts * 100)
+    : 0;
+
+  $("accuracy").textContent = faNumber(accuracy) + "٪";
+
+  const achievements = [
+    ["🌱", "اولین قدم", progress.correct >= 1],
+    ["⭐", "۵ پاسخ درست", progress.correct >= 5],
+    ["🔥", "۱۰ پاسخ درست", progress.correct >= 10],
+    ["🏆", "۵۰ امتیاز", progress.score >= 50]
+  ];
+
+  $("achievements").innerHTML = achievements.map(([icon, name, unlocked]) =>
+    `<div class="achievement ${unlocked ? "" : "locked"}">
+      ${icon} ${name} ${unlocked ? "✓" : "🔒"}
+    </div>`
+  ).join("");
+}
+
+const questions = [
+  { l:"easy", q:"حاصل ۸ + ۳ × ۴ چیست؟", a:["۲۰","۴۴","۳۲","۲۴"], c:0, e:"ابتدا ضرب: ۳×۴=۱۲ و سپس ۸+۱۲=۲۰." },
+  { l:"easy", q:"حاصل (۶ + ۲) × ۳ چیست؟", a:["۱۱","۲۴","۱۸","۲۱"], c:1, e:"ابتدا پرانتز: ۶+۲=۸، سپس ۸×۳=۲۴." },
+  { l:"easy", q:"حاصل ۳۰ ÷ ۵ + ۴ چیست؟", a:["۱۰","۶","۹","۱۴"], c:0, e:"۳۰÷۵=۶ و ۶+۴=۱۰." },
+  { l:"easy", q:"حاصل ۵² − ۹ چیست؟", a:["۱۶","۳۴","۲۵","۱۴"], c:0, e:"۵²=۲۵ و ۲۵−۹=۱۶." },
+
+  { l:"medium", q:"حاصل ۱۸ − ۳ × (۲ + ۴)² ÷ ۶ + ۵ چیست؟", a:["۵","۲۳","−۵","۱۱"], c:0, e:"پرانتز ۶، توان ۳۶، ضرب و تقسیم ۱۸؛ پس ۱۸−۱۸+۵=۵." },
+  { l:"medium", q:"حاصل −۴² + (−۴)² چیست؟", a:["۳۲","۰","−۳۲","۱۶"], c:1, e:"−۴² برابر −۱۶ و (−۴)² برابر ۱۶ است؛ مجموع صفر." },
+  { l:"medium", q:"مجموع اعداد ۱ تا ۲۰ چیست؟", a:["۲۰۰","۲۱۰","۲۲۰","۱۹۰"], c:1, e:"۲۰×۲۱÷۲=۲۱۰." },
+  { l:"medium", q:"مجموع ۵ + ۱۰ + ۱۵ + ... + ۵۰ چقدر است؟", a:["۲۵۰","۲۷۵","۳۰۰","۲۲۵"], c:1, e:"۱۰ جمله داریم؛ میانگین ۲۷٫۵ است. مجموع ۱۰×۲۷٫۵=۲۷۵." },
+
+  { l:"hard", q:"حاصل ۴۸ ÷ [۲ × (۳ + ۱)] + ۳² × ۲ − ۵ چیست؟", a:["۱۹","۲۱","۱۳","۲۹"], c:0, e:"۴۸÷۸=۶ و ۹×۲=۱۸؛ سپس ۶+۱۸−۵=۱۹." },
+  { l:"hard", q:"مجموع اعداد ۱ تا ۱۰۰۰ چقدر است؟", a:["۵۰۰۰۰۰","۵۰۰۵۰۰","۵۰۱۰۰۰","۴۹۹۵۰۰"], c:1, e:"۱۰۰۰×۱۰۰۱÷۲=۵۰۰۵۰۰." },
+  { l:"hard", q:"مجموع ۷ + ۱۲ + ۱۷ + ... + ۱۰۲ چقدر است؟", a:["۱۰۹۰","۱۰۰۰","۱۱۰۰","۱۰۵۰"], c:0, e:"تعداد جمله‌ها ۲۰ است. میانگین ۵۴٫۵؛ پس مجموع ۱۰۹۰." },
+  { l:"hard", q:"حاصل ۲⁴ × ۳ − ۵² + ۶ چیست؟", a:["۲۹","۲۱","۳۳","۱۹"], c:0, e:"۱۶×۳−۲۵+۶=۴۸−۲۵+۶=۲۹." }
+];
+
+let level = "all";
+let list = [];
+let index = 0;
+let roundScore = 0;
+let answered = false;
+let started = false;
+
+const quizBox = document.querySelector(".quiz-box");
+
+const startBtn = document.createElement("button");
+startBtn.className = "btn";
+startBtn.textContent = "شروع آزمون ▶";
+startBtn.style.marginBottom = "15px";
+quizBox.insertBefore(startBtn, $("levelLabel"));
+
+function shuffle(arr) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function startQuiz() {
+  list = shuffle(questions.filter(q => level === "all" || q.l === level));
+  index = 0;
+  roundScore = 0;
+  answered = false;
+  started = true;
+
+  startBtn.hidden = true;
+  $("nextBtn").hidden = true;
+  $("roundScore").textContent = "۰";
+  $("feedback").textContent = "";
+  renderQuestion();
+}
+
+function renderQuestion() {
+  if (index >= list.length) {
+    $("question").textContent = "🎉 آزمون تموم شد!";
+    $("answers").innerHTML = "";
+    $("counter").textContent = "پایان آزمون";
+    $("progressBar").style.width = "100%";
+    $("feedback").textContent =
+      `امتیاز این دور: ${faNumber(roundScore)} از ${faNumber(list.length * 10)}`;
+    startBtn.textContent = "شروع دوباره ↻";
+    startBtn.hidden = false;
+    return;
+  }
+
+  const q = list[index];
+  answered = false;
+
+  $("counter").textContent =
+    `سؤال ${faNumber(index + 1)} از ${faNumber(list.length)}`;
+
+  $("levelLabel").textContent =
+    q.l === "easy" ? "آسان" : q.l === "medium" ? "متوسط" : "پیشرفته";
+
+  $("question").textContent = q.q;
+  $("answers").innerHTML = "";
+  $("feedback").textContent = "";
+  $("nextBtn").hidden = true;
+
+  $("progressBar").style.width = `${index / list.length * 100}%`;
+
+  q.a.forEach((answer, i) => {
+    const btn = document.createElement("button");
+    btn.className = "answer";
+    btn.textContent = answer;
+    btn.type = "button";
+    btn.addEventListener("click", () => checkAnswer(i, btn));
+    $("answers").appendChild(btn);
+  });
+}
+
+function checkAnswer(choice, button) {
+  if (answered) return;
+  answered = true;
+
+  const q = list[index];
+  const buttons = [...$("answers").children];
+
+  buttons.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.c) btn.classList.add("correct");
+  });
+
+  progress.attempts++;
+
+  if (choice === q.c) {
+    progress.correct++;
+    progress.score += 10;
+    roundScore += 10;
+    button.classList.add("correct");
+    $("feedback").textContent = "✅ آفرین! جواب درست است. " + q.e;
+  } else {
+    button.classList.add("wrong");
+    $("feedback").textContent = "❌ جواب درست نبود. " + q.e;
+  }
+
+  $("roundScore").textContent = faNumber(roundScore);
+  saveProgress();
+  updateProgress();
+
+  $("nextBtn").textContent =
+    index === list.length - 1 ? "دیدن نتیجه ←" : "سؤال بعدی ←";
+  $("nextBtn").hidden = false;
+}
+
+startBtn.addEventListener("click", startQuiz);
+
+$("nextBtn").addEventListener("click", () => {
+  index++;
+  renderQuestion();
+});
+
+document.querySelectorAll(".tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    level = tab.dataset.level || "all";
+    startQuiz();
+  });
+});
+
+// تمرین تصادفی گاوس
+let sequence = null;
+
+function newSequence() {
+  const first = Math.floor(Math.random() * 15) + 1;
+  const step = Math.floor(Math.random() * 9) + 2;
+  const count = Math.floor(Math.random() * 15) + 6;
+  const last = first + (count - 1) * step;
+
+  sequence = { first, step, count, last };
+  $("randomSequence").textContent =
+    `${first} + ${first + step} + ${first + 2 * step} + ... + ${last}`;
+  $("sequenceAnswer").value = "";
+  $("sequenceFeedback").textContent = "";
+}
+
+$("newSequence").addEventListener("click", newSequence);
+
+$("checkSequence").addEventListener("click", () => {
+  if (!sequence) {
+    $("sequenceFeedback").textContent = "اول یک تمرین جدید بساز.";
+    return;
+  }
+
+  const raw = $("sequenceAnswer").value.trim()
+    .replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+    .replace(/[٬,،\s]/g, "");
+
+  if (raw === "") {
+    $("sequenceFeedback").textContent = "جوابت رو وارد کن.";
+    return;
+  }
+
+  const answer = Number(raw);
+  const correct = (sequence.first + sequence.last) * sequence.count / 2;
+
+  if (answer === correct) {
+    $("sequenceFeedback").textContent = "✅ آفرین! جواب درست است.";
+    progress.score += 10;
+    progress.correct++;
+    progress.attempts++;
+  } else {
+    $("sequenceFeedback").textContent =
+      `❌ جواب درست: ${faNumber(correct)}`;
+    progress.attempts++;
+  }
+
+  saveProgress();
+  updateProgress();
+});
+
+// تغییر تم
+const savedTheme = localStorage.getItem(THEME_KEY);
+if (savedTheme === "light") document.body.classList.add("light");
+
+$("themeBtn").textContent =
+  document.body.classList.contains("light") ? "🌙" : "☀️";
+
+$("themeBtn").addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  const light = document.body.classList.contains("light");
+  $("themeBtn").textContent = light ? "🌙" : "☀️";
+  try {
+    localStorage.setItem(THEME_KEY, light ? "light" : "dark");
+  } catch {}
+});
+
+// پاک کردن پیشرفت
+$("resetProgress").addEventListener("click", () => {
+  if (!confirm("مطمئنی می‌خوای همه امتیازها پاک بشن؟")) return;
+  progress = { ...defaults };
+  saveProgress();
+  updateProgress();
+});
+
+// راه‌اندازی اولیه
+updateProgress();
+newSequence();
+$("question").textContent = "برای شروع آزمون روی دکمه زیر بزن.";
+$("answers").innerHTML = "";
+$("counter").textContent = "آزمون آماده است";
+$("progressBar").style.width = "0%";
+$("roundScore").textContent = "۰";
+$("nextBtn").hidden = true;
+</script>
+</body>
+</html>
+
